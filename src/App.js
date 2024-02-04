@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import AddEmployee from "./stepper/AddEmployee";
+import ResponsiveStepper from "./stepper/ResponsiveStepper";
 
 export default function App() {
-  return <AddEmployee />;
+  return <ResponsiveStepper />;
 }

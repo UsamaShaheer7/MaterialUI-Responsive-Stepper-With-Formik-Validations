@@ -10,14 +10,16 @@ import validationSchema from "./validationSchema";
 import StepContent from "@mui/material/StepContent";
 import { useState } from "react";
 import { useEffect } from "react";
+import { IoMdArrowDown, IoMdArrowUp } from "react-icons/io";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 import { Typography } from "@mui/material";
 
-const AddEmployeeForm = () => {
+const ResponsiveStepper = () => {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
+  const [saveDisabled, setSaveDisabled] = useState(false);
   const [orientation, setOrientation] = useState(
     window.innerWidth > 600 ? "horizontal" : "vertical"
   );
@@ -43,10 +45,10 @@ const AddEmployeeForm = () => {
   const isLastStep = () => {
     return activeStep === totalSteps() - 1;
   };
+
   const allStepsCompleted = () => {
     return completedSteps() === totalSteps();
   };
-
   const handleNext = () => {
     const newActiveStep =
       isLastStep() && !allStepsCompleted()
@@ -232,4 +234,4 @@ const AddEmployeeForm = () => {
     </>
   );
 };
-export default AddEmployeeForm;
+export default ResponsiveStepper;
